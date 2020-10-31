@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { AuthProvider } from './src/navigation/AuthProvider';
 import Routes from './src/navigation/Routes';
 
 /**
@@ -9,7 +10,9 @@ import Routes from './src/navigation/Routes';
 export default function Providers() {
   return (
     <PaperProvider>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </PaperProvider>
   );
 }

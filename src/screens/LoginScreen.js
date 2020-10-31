@@ -5,13 +5,15 @@ two text input fields for user's email and password
 one login button and one button to navigate to sign up screen (in case the end-user is not registered to use the app)
 */
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../navigation/AuthProvider';
 import { View, StyleSheet } from 'react-native';
 import { Title } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
 export default function Login({ navigation }) {
+    const { login } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,6 +36,7 @@ export default function Login({ navigation }) {
                 title='Login'
                 modeValue='contained'
                 labelStyle={styles.loginButtonLabel}
+                onPress={() => login(email, password)}
             />
             <FormButton
                 title='New user? Join here'
