@@ -6,8 +6,10 @@ import FormButton from '../components/FormButton';
 import Loading from '../components/Loading';
 import firebase from "../database/firebaseDB";
 import 'firebase/firestore';
+import useStatsBar from '../utils/useStatusBar';
 
 export default function HomeScreen({ navigation }) {
+    useStatsBar('light-content');
     const { user, logout } = useContext(AuthContext);
     const [threads, setThreads] = useState([]);
     const [loading, setLoading] = useState(true);

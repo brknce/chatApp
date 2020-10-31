@@ -5,9 +5,11 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import firebase from "../database/firebaseDB";
 import 'firebase/firestore';
+import useStatsBar from '../utils/useStatusBar';
 
 export default function AddRoomScreen({ navigation }) {
     const [roomName, setRoomName] = useState('');
+    useStatsBar('dark-content');
 
     function handleButtonPress() {
         if (roomName.length > 0) {
